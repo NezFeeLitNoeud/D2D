@@ -1,0 +1,438 @@
+* {  	
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+}
+
+/*------------------------------------------------*/
+/*-------------------- NAV BAR -------------------*/
+/*------------------------------------------------*/
+
+
+#navigation {
+	width: 100%;
+}
+
+.nav-item {
+	margin-left: 20px;
+	font-size: 20px;
+}
+
+.nav-link {
+
+}
+
+#dropdownMenuButton{
+	margin-top: 7%;
+}
+
+#off {
+	width: 25px;
+	margin-left: 10px;
+	margin-bottom: 5px;
+}
+
+#navbar {
+	margin-top: 2%;
+	width: 63%;
+	border-bottom: 8px black solid;
+	position: fixed;
+	z-index: 1;
+	background-color: white;
+	margin-left:50%;
+	transform: translate(-50%);
+}
+
+.navbar-collapse{
+	margin:auto;
+}
+
+.dropdown-toggle {
+	margin-top:3px;
+	font-size: 20px;
+	color: black;
+	border: none;
+	background-color: white;
+}
+
+/*------------------------------------------------*/
+/*------------------ INDEX.PHP -------------------*/
+/*------------------------------------------------*/
+
+.carousel-item img{
+	width: 100%;
+	height: 100%;
+	padding: 1%;
+}
+
+.carou {
+	margin: 5% auto;
+	border:2px black solid;
+	width: 50%;
+	height: 50%;
+}
+
+.contenu_accueil {
+	margin-top: 50px;
+	display: flex;
+	/*border:1px black solid;*/
+}
+
+.col {
+	margin: 0 10px;
+	flex:3;
+	flex-direction: row;
+	border:2px black solid;
+}
+
+.G {
+	padding-left: 1%;
+	flex-direction: column;
+	flex: 1;
+}
+
+
+.D {
+	flex-direction: column;
+	flex: 4;
+}
+
+
+.rowp {
+	display: flex;
+	flex-direction: row;
+}
+
+.div {
+	border:1px black solid;
+	margin: 10 10px;
+	flex-direction: column;
+	flex: 1;
+	/*border:2px red solid;*/
+}
+
+.tit {
+	font-weight: bold;
+	font-size: 25px;
+	text-align: center;
+	color: white;
+	/*border:1px yellow solid;*/
+	background-color: #57140b;
+	height: 40px;
+}
+.service li{
+	margin-left: 5%;
+}
+.card-text {
+	text-align: center;
+	line-height: 10px;
+}
+
+#btn_card {
+	border: none;
+	background-color: #57140b;
+}
+
+#carte {
+	text-align: center;
+}
+
+#logo {
+	position: absolute;
+}
+
+.sav {
+	margin-top: 40px;
+	line-height: 30px;
+	text-align: center;
+}
+
+.service {
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 60px;
+}
+
+h5 {
+	height: 40px;
+	text-align: center;
+	color: white;
+	background-color: #57140b;
+	margin-top: 10px;
+}
+
+li {
+	line-height: 45px;
+}
+/*------------------------------------------------*/
+/*---------------- INSCRIPTION -------------------*/
+/*------------------------------------------------*/
+
+.containeur {
+	border: solid;
+	width: 650px;
+	height: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+}
+
+.infox {
+	/*border:1px red solid;*/
+	display: flex;
+	height: 100%;
+}
+
+#back {
+	margin-left:270px;
+}
+
+#bck {
+	font-size: 10px;
+	margin:1%;
+}
+.npm {
+	text-align: center;
+	flex:1;
+	line-height: 40px;
+}
+.colu{
+	flex-direction: column;
+	flex: 1;
+}
+.mdp {
+	margin-right: 25px;
+	margin-top: 20px;
+	text-align: center;
+	flex:1;
+	line-height: 40px;
+	/*border:1px green solid;*/
+}
+
+.input {
+	height: 20px;
+	margin-top: 10px;
+	/*border:2px purple solid;*/
+	float: right;
+}
+
+.ckeckins{
+	margin-left: 1%;
+}
+
+.head {                                                /*/ en commun avec connexion/*/
+	background-color: #17202A;	
+	width: 905px;
+	height: 15px;
+	margin-top:0; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+.contour{
+	border: solid;
+	width: 900px;
+	height: 950px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top:0;
+
+}
+
+h1{
+	color: white;
+	text-align: center;
+
+}
+
+
+.infoperso{ /**/
+	
+	width: 600px;
+	height: 150px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+	border: 3px solid #57140b;
+}
+
+
+.infoperso legend{
+	color: #57140b
+}
+
+.infolivraison{ /**/
+
+	border: 3px solid #57140b;
+	margin-top: 30px;
+	width: 90%;
+	height: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	padding: 5PX;
+}
+
+.infolivraison legend{
+	color: #57140b
+}
+
+.rowinscri { 
+	flex-direction: row;
+	flex: 1;
+	display: flex;
+}
+
+.col-label1{/**/
+	padding-left:1px;
+
+}
+
+.col-input1{/**/
+	margin-left: 21px;
+
+}
+.col-label2{/**/
+	margin-left:190px;
+}
+
+.col-input2{/**/
+	margin-left:10px;
+}
+
+
+
+
+.submit {          /*/ en commun avec connexion/*/     
+	width: 20%; 
+	border: 1px solid #fff;
+	border-radius: 10px;
+	padding: 6px 15px;
+	margin-left: 260px;
+	font-size: 18px; 
+	color: white;
+}
+
+
+input[type="submit"]{         
+	background: #57140b; 
+	border: 1px; 
+	cursor: pointer;
+	color: white;
+}
+input[type="submit"]:hover{        
+	background: grey;
+	width: 22%;
+	transition: 1s;
+}
+
+
+/*------------------------------------------------*/
+/*------------------ CONNEXION -------------------*/
+/*------------------------------------------------*/
+.containeuur {
+	border: solid;
+	width: 650px;
+	height: 350px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+
+}
+
+.head{
+	background: black;
+	border: solid;
+	width: 650px;
+	height: 60px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+}
+
+h1{
+	color: white;
+	text-align: center;
+	font-size: 30px;
+}
+
+
+.top_co {
+	margin-top: 70px;
+	font-size: 20px;
+	text-align: center;
+}
+
+.bot_co {
+	font-size: 20px;
+	text-align: center;
+}
+
+.input_co {
+	width: 230px;
+	height: 25px;
+	border: 1px black solid;
+	border-radius: 20px;
+	font-size: 15px;
+	text-align: center;
+}
+
+.submiit {     
+	width: 20%; 
+	border: 1px solid #fff;
+	border-radius: 10px;
+	padding: 6px 15px;
+	margin-left: 260px;
+	font-size: 18px; 
+	color: white;
+}
+
+/*------------------------------------------------*/
+/*----------------- DRONE RACING -----------------*/
+/*------------------------------------------------*/
+
+#card_dr {
+	margin-top: 150px;
+	margin-left: 100px;
+	position: relative;
+	display: inline-block;
+	border:1px black solid;
+}
+
+
+/*------------------------------------------------*/
+/*-------------------- PROFIL --------------------*/
+/*------------------------------------------------*/
+
+.row {
+	margin-top:150px;
+	border:1px black solid;
+	width: 80%;
+	height: 60%;
+}
+
+.col-4 {
+	border-right:1px black solid;
+}
+
+.container_profil {
+	margin-left: 400px;
+}
+
+.list-group {
+	margin-top: 110px;
+}
+
+
+
+
+
+
+
+
+
+
