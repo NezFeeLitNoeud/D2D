@@ -29,7 +29,7 @@ if(!empty($_GET["action"])) {
 <html>
 <head>
 	<html lang="en">
-	<title>Panier</title>
+		<title>Panier</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 	<link href="../index.css" type="text/css" rel="stylesheet" />
 </head>
@@ -51,7 +51,7 @@ if(!empty($_GET["action"])) {
 				<div class="product-price"><?php echo $item["prix"]."€"; ?></div>
 				<div>Quantitée: <?php echo $item["quantite"]; ?></div>
 				<div class="btnRemoveAction" id="<?php echo $item["code"]; ?>"><a href="panier.php?action=remove&code=<?php echo $item["code"]; ?>" title="Retirer du pannier">x</a></div>
-			</div>
+	
 			<?php
 		}
 		?>	
@@ -70,19 +70,25 @@ if(!empty($_GET["action"])) {
 	?>
 
 
-	<div class="cart_footer_link">
-		<a href="panier.php?action=empty">Vider le panier</a>
-		<a href="../index.php" title="Cart">Continuer le Shopping</a>
-	</div>
-</div>
-
-<form action="payment.php" method="post">
+	<div class="valider">
+	<form action="payment.php" method="post">
 
 	<button type="submit">Valider votre achat</button>
-	
+
+	</form>
+	</div>
 
 
-</form>
+
+	<div class="cart_footer_link">
+		<a href="panier.php?action=empty"> <button type="submit">Vider le panier</button> </a>
+	</div>
+
+	<div class="cart_footer_link2">
+		<a href="../index.php" title="Cart"> <button type="submit">Continuer le Shopping</button> </a>
+	</div>
+
+	</div>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
