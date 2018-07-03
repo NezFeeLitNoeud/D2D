@@ -1,6 +1,7 @@
 <!-- Bootstrap connection -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
+
 <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center" id="navigation">
 	<div class="navbar-collapse" id="collapsingNavbar3">
 		<div id="navbar">

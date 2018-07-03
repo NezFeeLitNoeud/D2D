@@ -47,16 +47,26 @@ if(!empty($_GET["action"])) {
 					<a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">PROFIL</a>
 					<a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">DERNIERS ACHATS</a>
 					<a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">INFORMATIONS DE FACTURATION</a>
-					<a class="list-group-item list-group-item-action" class="data-toggle="list" href="modifier_profil.php?id=<?php echo $_SESSION['id'] ?>" role="tab" aria-controls="messages">MODIFIER PROFIL</a>
 				</div>
 			</div>
 			<div class="col-8">
 				<div class="tab-content" id="nav-tabContent">
 					<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-						<h3><?php echo $r['nom'].$r['prenom'];?></h3>
+						<?php
+						 $total_achat = $DB->query('SELECT COUNT(id_com) FROM commandes where id_user ='.$_SESSION['id']);
+						 $total_achat = $total_achat->fetchAll();
+						 foreach ($total_achat as $ta) {
+						 	# code...
+						 }
+						 ?>
+						<h3><?php echo $r['nom']." ".$r['prenom'];?></h3>
+						<br>
+						<p>VOTRE MAIL : <?php echo $r['mail']; ?></p>
+						<p>VOTRE MOT DE PASSE : ***********</p>
+						<p>NOMBRE TOTAL D'ACHAT : <?php echo $ta["COUNT(id_com)"]; ?></p>
 
 						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+						<button type="button" class="btn btn-primary" id="supprimer" data-toggle="modal" data-target="#exampleModal">
 							SUPPRIMER PROFIL
 						</button>
 
@@ -72,7 +82,7 @@ if(!empty($_GET["action"])) {
 									</div>
 									<div class="modal-body">
 										<p>Etes vous sur de vouloir supprimer votre profil?</p>
-										<p>Attention cette action est irreversible.</p>
+										<p>Attention cette action est irreversible et toutes vos données seront effacées.</p>
 
 									</div>
 									<div class="modal-footer">
@@ -106,6 +116,8 @@ if(!empty($_GET["action"])) {
 						<p>Adresse : <?php echo $r['adresse'];?></p>
 						<p>Ville : <?php echo $r['ville'];?></p>
 						<p>Code postale : <?php echo $r['code_postale'];?></p>
+
+						<a class="list-group-item list-group-item-action" class="data-toggle="list" href="modifier_profil.php?id=<?php echo $_SESSION['id'] ?>" role="tab" aria-controls="messages">MODIFIER PROFIL</a>
 
 					</div>
 				</div>

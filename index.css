@@ -35,10 +35,14 @@ html, body {
 	margin-bottom: 5px;
 }
 
+
 #navbar {
-	margin-top: 2%;
+	margin-top: 1%;
 	width: 63%;
 	border-bottom: 8px black solid;
+/*	border-left: 2px solid grey;
+	border-right: 1px lightgrey solid;*/
+	box-shadow: 1px 1px 8px lightgrey;
 	position: fixed;
 	z-index: 1;
 	background-color: white;
@@ -416,6 +420,7 @@ h1{
 }
 
 .col-4 {
+	padding: 0px;
 	border-right:1px black solid;
 }
 
@@ -424,9 +429,81 @@ h1{
 }
 
 .list-group {
-	margin-top: 110px;
+	width: 268px;
 }
 
+.tab-pane {
+	margin-top: 5%;
+	border: 3px red solid;
+	text-align: center;
+}
+
+#supprimer {
+	margin-top: 30%;
+}
+
+
+/*------------------------------------------------*/
+/*-------------------- PANIER --------------------*/
+/*------------------------------------------------*/
+
+#shopping-cart {
+
+    height: 80%;
+    width: 80%;
+    margin-top: 5%;
+    margin-left: 10%;
+    /border: 2px red solid;/
+    font-size: 150%;
+    position: relative;
+}
+
+.txt-heading {
+
+    background-color: #57140b;
+    color: white;
+    margin-left: 20%;
+    width: 60%;
+    height: 10%;
+    position: absolute;
+    font-size: 200%;
+    font-weight: bold;
+    text-align: center;
+    /border: 2px green solid;/
+
+}
+
+.cart_footer_link {
+
+    text-align: right;
+    bottom: 5%;
+    left: 5%;
+    position: absolute;
+    /border: 2px solid blue;/
+
+}
+
+.cart_footer_link2 {
+
+    text-align: right;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    /border: 2px solid blue;/
+
+}
+
+
+.valider {
+
+    text-align: right;
+    bottom: 5%;
+    right: 5%;
+    position: absolute;
+    /border: 2px purple solid;/
+
+}
 
 
 
