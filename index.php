@@ -4,6 +4,8 @@ session_start();
 $titre="Accueil";
 include_once('includes/includes.php');
 include_once('includes/navbar.php');
+include('includes/constant.php');
+
 
 $req = $DB->query('SELECT * FROM user');
 $req = $req->fetchAll();
@@ -14,6 +16,7 @@ $prod = $prod->fetchAll();
 foreach ($prod as $p) {
 	# code...
 }
+$lvl=(isset($_SESSION['rang']))?(int) $_SESSION['rang']:1;
 
 ?>
 
@@ -27,6 +30,10 @@ foreach ($prod as $p) {
 	<link rel="stylesheet" href="index.css">
 </head>
 <body>
+	<?php if($lvl === 2) {
+	echo '<a id="admin" href="pages/admin.php">Panel D\'administration</a>';
+} 
+	?>
 
 	<img src="images/logo.png" id="logo" alt="logo en forme de drone">
 

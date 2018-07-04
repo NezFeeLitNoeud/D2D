@@ -5,7 +5,6 @@ include('../includes/includes.php');
 
 // $id = mysqli_real_escape_string($DB, $_GET["id"]);
 
-
 $afficherDrone = $DB->query("SELECT * FROM product  WHERE id_drone ='" . $_GET["id"] . "'");
 $afficherDrone = $afficherDrone->fetchAll();
 

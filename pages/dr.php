@@ -20,7 +20,7 @@ if(!empty($_GET["action"])) {
 			
 			if(!empty($_SESSION["panier_item"])) {
 				if(in_array($productByCode[0]["code"],$_SESSION["panier_item"])) {
-					foreach($_SESSION["panier_item"] as $k => $v) {
+					foreach($_SESSION["panier_item"] as $k) {
 						if($productByCode[0]["code"] == $k)
 							$_SESSION["panier_item"][$k]["quantite"] = $_POST["quantite"];
 					}
@@ -34,8 +34,6 @@ if(!empty($_GET["action"])) {
 		break;
 	}
 }
-
-	# code...
 ?>
 
 <!DOCTYPE html>
@@ -79,7 +77,6 @@ if(!empty($_GET["action"])) {
 					<p class="card-text">Poids : <?= $p['poids'] ?>g</p>
 					<input type="text" name="quantite" value="1" size="2" /><input type="submit" value="Ajouter" class="btn" />
 					<a href="afficher_produit.php?id=<?php echo $p['id_drone']; ?>" target="BLANK_"><input type="button" value="Description" class="btn" /></a>
-					<!-- <a href="#" class="btn btn-primary">Description</a> -->
 				</div>
 			</div>
 			</form>

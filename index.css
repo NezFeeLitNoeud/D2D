@@ -11,6 +11,12 @@ html, body {
 /*-------------------- NAV BAR -------------------*/
 /*------------------------------------------------*/
 
+@media screen and (max-width: 992px) {
+	#navbar {
+		height: 1%;
+	}
+}
+
 
 #navigation {
 	width: 100%;
@@ -41,13 +47,13 @@ html, body {
 	width: 63%;
 	border-bottom: 8px black solid;
 /*	border-left: 2px solid grey;
-	border-right: 1px lightgrey solid;*/
-	box-shadow: 1px 1px 8px lightgrey;
-	position: fixed;
-	z-index: 1;
-	background-color: white;
-	margin-left:50%;
-	transform: translate(-50%);
+border-right: 1px lightgrey solid;*/
+box-shadow: 1px 1px 8px lightgrey;
+position: fixed;
+z-index: 1;
+background-color: white;
+margin-left:50%;
+transform: translate(-50%);
 }
 
 .navbar-collapse{
@@ -65,6 +71,10 @@ html, body {
 /*------------------------------------------------*/
 /*------------------ INDEX.PHP -------------------*/
 /*------------------------------------------------*/
+#admin {
+	float: right;
+}
+
 
 .carousel-item img{
 	width: 100%;
@@ -91,11 +101,31 @@ html, body {
 	flex-direction: row;
 	border:2px black solid;
 }
+@media screen and (max-width: 992px) {
+	.service li {
+		list-style-type: none; 
+	}
+	.G {
+		font-size: 12px;
+		line-height: 10px;
+	}
+	h6 {
+		font-size: 12px;
+		line-height: 10px;
+	}
+	h5{
+		font-size: 15px;
+	}
+	.tit {
+		font-size: 20px;
+	}
+}
 
 .G {
 	padding-left: 1%;
 	flex-direction: column;
 	flex: 1;
+	height: 80%;
 }
 
 
@@ -150,7 +180,7 @@ html, body {
 
 .sav {
 	margin-top: 40px;
-	line-height: 30px;
+	line-height: 20px;
 	text-align: center;
 }
 
@@ -417,6 +447,7 @@ h1{
 	border:1px black solid;
 	width: 80%;
 	height: 60%;
+
 }
 
 .col-4 {
@@ -428,18 +459,38 @@ h1{
 	margin-left: 400px;
 }
 
-.list-group {
-	width: 268px;
+@media screen and (max-width: 992px) {
+	.list-group {
+		font-size: 15px;
+	}
 }
+
+@media screen and (max-width: 898px) {
+	.list-group {
+		font-size: 12px;
+	}
+}
+
+.list-group {
+	width: 100%;
+}
+
 
 .tab-pane {
 	margin-top: 5%;
-	border: 3px red solid;
 	text-align: center;
 }
 
 #supprimer {
-	margin-top: 30%;
+	margin-top: 20%;
+	background-color: #57140b;
+	border: none;
+}
+
+#modify {
+	margin-top: 40%;
+	background-color: #57140b;
+	border: none;
 }
 
 
@@ -453,7 +504,7 @@ h1{
     width: 80%;
     margin-top: 5%;
     margin-left: 10%;
-    /border: 2px red solid;/
+    border: 5px black solid;
     font-size: 150%;
     position: relative;
 }
@@ -506,9 +557,30 @@ h1{
 }
 
 
+.achats {
+
+	height: 60%;
+	width: 25%;
+	text-align: center;
+	border: 4px pink solid;
+	position: absolute;
+	top: 25%;
+	right: 0;
+
+}
 
 
+/*------------------------------------------------*/
+/*-------------------- PAYMENT -------------------*/
+/*------------------------------------------------*/
 
+
+.payment {
+	text-align: center;
+	border: 2px black solid;
+	width: 50%;
+	margin: 200 auto;
+}
 
 
 

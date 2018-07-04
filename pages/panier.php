@@ -3,8 +3,6 @@ session_start();
 include("../includes/connexionDB.php");
 include_once('../includes/includes.php');
 include("../includes/navbar.php");
-
-
 if(!empty($_GET["action"])) {
 	switch($_GET["action"]) {
 		case "remove":
@@ -36,6 +34,7 @@ if(!empty($_GET["action"])) {
 <body>
 	<div id="shopping-cart">
 		<div class="txt-heading">Panier </div>
+		<div class="achats">
 		<?php
 		if(isset($_SESSION["panier_item"], $_SESSION['id'])){
 			$item_total = 0;
@@ -57,13 +56,13 @@ if(!empty($_GET["action"])) {
 		?>	
 		<strong>Total:</strong> 
 		<?php 
-
 		if ($item_total > 0) {
 			echo $item_total."€"; 
 		} else {
 			echo $item_total."0";
 		}
 		?>
+		</div>
 
 		<?php 
 	}

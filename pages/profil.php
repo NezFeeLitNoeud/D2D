@@ -3,6 +3,14 @@ session_start();
 include('../includes/navbar.php');
 include('../includes/includes.php');
 
+
+if (!isset($_SESSION['id'])){
+        header('Location: ../index.php');
+        exit;
+    }
+
+$lvl=(isset($_SESSION['rang']))?(int) $_SESSION['rang']:1;
+
 $req = $DB->query('SELECT * FROM user WHERE id='.$_SESSION["id"]);
 $req = $req->fetchAll();
 
@@ -47,18 +55,19 @@ if(!empty($_GET["action"])) {
 					<a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">PROFIL</a>
 					<a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">DERNIERS ACHATS</a>
 					<a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">INFORMATIONS DE FACTURATION</a>
+					<a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-panier" role="tab" aria-controls="messages">PANIER EN COURS</a>
 				</div>
 			</div>
 			<div class="col-8">
 				<div class="tab-content" id="nav-tabContent">
 					<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
 						<?php
-						 $total_achat = $DB->query('SELECT COUNT(id_com) FROM commandes where id_user ='.$_SESSION['id']);
-						 $total_achat = $total_achat->fetchAll();
-						 foreach ($total_achat as $ta) {
+						$total_achat = $DB->query('SELECT COUNT(id_com) FROM commandes where id_user ='.$_SESSION['id']);
+						$total_achat = $total_achat->fetchAll();
+						foreach ($total_achat as $ta) {
 						 	# code...
-						 }
-						 ?>
+						}
+						?>
 						<h3><?php echo $r['nom']." ".$r['prenom'];?></h3>
 						<br>
 						<p>VOTRE MAIL : <?php echo $r['mail']; ?></p>
@@ -97,39 +106,52 @@ if(!empty($_GET["action"])) {
 					</div>
 
 					<div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-						Dernier achats
-						<?php 
-						foreach ($com as $c) { 
-							?>
-							Id de votre commande : <?php echo $c['id_com'];?><br>
-							Nom du drone acheté : <?php echo $c['nom_drone'];?><br>
-							Prix : <?php echo $c['prix'];?>€<br>
-							Status :<?php echo $c['status'];?><br><br>
 
-							<?php 
-						} 
-						?> 
+
+						<table class="table">
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Nom Drone</th>
+									<th scope="col">Prix</th>
+									<th scope="col">Status</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php 
+								foreach ($com as $c) { 
+									?>
+									<tr>
+										<th scope="row"><?php echo $c['id_com'];?></th>
+										<td><?php echo $c['nom_drone'];?></td>
+										<td><?php echo $c['prix'];?>€</td>
+										<td><?php echo $c['status'];?></td>
+									</tr>
+
+									<?php 
+								} 
+								?> 
+							</tbody>
+						</table>
+
+
 
 					</div>
 
 					<div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
-						<p>Adresse : <?php echo $r['adresse'];?></p>
-						<p>Ville : <?php echo $r['ville'];?></p>
-						<p>Code postale : <?php echo $r['code_postale'];?></p>
+						<p>ADRESSE: <?php echo $r['adresse'];?></p>
+						<p>VILLE : <?php echo $r['ville'];?></p>
+						<p>CODE POSTALE : <?php echo $r['code_postale'];?></p>
 
-						<a class="list-group-item list-group-item-action" class="data-toggle="list" href="modifier_profil.php?id=<?php echo $_SESSION['id'] ?>" role="tab" aria-controls="messages">MODIFIER PROFIL</a>
+						<a class="data-toggle="list" href="modifier_profil.php?id=<?php echo $_SESSION['id'] ?>" role="tab" aria-controls="messages"> <button class="btn btn-primary" id="modify"> MODIFIER PROFIL</button></a>
 
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
-
-	<?php
-	if(isset($_SESSION["panier_item"], $_SESSION['id'])){
-		$item_total = 0;
-		?>	
+					<div class="tab-pane fade" id="list-panier" role="tabpanel" aria-labelledby="list-messages-list">
+						<?php
+						if(isset($_SESSION["panier_item"], $_SESSION['id'])){
+							$item_total = 0;
+							?>	
 			<?php foreach ($_SESSION["panier_item"] as $item) {  // $item -> Item séléctionner dans le pannier
 				if($item_total === 0) {  
 					echo "Votre <a href='panier.php'>panier </a> en cours";
@@ -142,25 +164,20 @@ if(!empty($_GET["action"])) {
 				
 				<div><strong><?php echo $item["nom_drone"]; ?></strong></div>
 				<div class="product-price"><?php echo $item["prix"]."€"; ?></div>
-				<div>Quantitée: <?php echo $item["quantite"]; ?></div>
 				
 			</div>
 			<?php
 		}
-		?>	
-		<strong>Total:</strong> 
-		<?php 
-
-		if ($item_total > 0) {
-			echo $item_total."€"; 
-		} else {
-			echo "0";
-		}
-		?>
-
-		<?php 
 	}
 	?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

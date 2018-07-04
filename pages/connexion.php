@@ -19,7 +19,7 @@ if(!empty($_POST)){
 		
 	if(empty($Mail)){
 		$valid = false;
-		$_SESSION['flash']['warning'] = "Veuillez renseigner votre mail !";
+		$_SESSION['flash']['danger'] = "Veuillez renseigner votre mail !";
 	}
 	
 	if(empty($Password)){
@@ -48,6 +48,7 @@ if(!empty($_POST)){
 		$_SESSION['adresse'] = $req['adresse'];
 		$_SESSION['code_postale'] = $req['code_postale'];
 		$_SESSION['ville'] = $req['ville'];
+		$_SESSION['rang'] = $req['rang'];
 		
 		$_SESSION['flash']['info'] = "Bonjour " . $_SESSION['prenom'];
 		header('Location: ../index.php');
