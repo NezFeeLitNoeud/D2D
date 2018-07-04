@@ -436,19 +436,35 @@ h1{
 	display: inline-block;
 	border:1px black solid;
 }
+ 
+  .card-body {
+    border: 2px red solid;
+    height: 35%;
+}
 
+.card-img-top {
+    border:2px blue solid;
+    height: 40%;
+    width: 100%;
+} 
 
 /*------------------------------------------------*/
 /*-------------------- PROFIL --------------------*/
 /*------------------------------------------------*/
 
+.tablo{
+	overflow: scroll;
+	height: 90%;
+	overflow-x: hidden;
+}
 .row {
 	margin-top:150px;
 	border:1px black solid;
 	width: 80%;
 	height: 60%;
-
 }
+
+
 
 .col-4 {
 	padding: 0px;
@@ -493,6 +509,48 @@ h1{
 	border: none;
 }
 
+/*------------------------------------------------*/
+/*----------------- MODFY PROFIL -----------------*/
+/*------------------------------------------------*/
+.contain_modif {
+	border:1px black solid;
+	width: 50%;
+	margin: -7% auto;
+}
+
+.head_modif {
+	width: 50%;
+	margin: 9% auto;
+	background-color: black
+}
+
+.modiflivraison {
+	padding: 10px;
+	border:2px black solid;
+	width: 60%;
+	height: 140px;
+	margin: 2% auto;
+	text-align: center;
+}
+
+.info_modif {
+	float: right;
+	border: 1px black solid;
+	width: 150px;
+	height: 20px;
+}
+
+.span_modif {
+	float: left;
+}
+
+#modif {
+	width: 150px;
+	height: 30px;
+	border-radius: 30px;
+	font-size: 15px;
+	margin-left: 40%;
+}
 
 /*------------------------------------------------*/
 /*-------------------- PANIER --------------------*/
@@ -556,9 +614,7 @@ h1{
 
 }
 
-
 .achats {
-
 	height: 60%;
 	width: 25%;
 	text-align: center;
@@ -566,7 +622,6 @@ h1{
 	position: absolute;
 	top: 25%;
 	right: 0;
-
 }
 
 
@@ -581,7 +636,5 @@ h1{
 	width: 50%;
 	margin: 200 auto;
 }
-
-
 
 

@@ -104,17 +104,16 @@ if(!empty($_GET["action"])) {
 
 
 					</div>
-
+				
 					<div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-
-
+						<div class="tablo">
 						<table class="table">
 							<thead class="thead-dark">
 								<tr>
-									<th scope="col">#</th>
-									<th scope="col">Nom Drone</th>
-									<th scope="col">Prix</th>
-									<th scope="col">Status</th>
+									<th scope="col" class="try">#</th>
+									<th scope="col" class="try">Nom Drone</th>
+									<th scope="col" class="try">Prix</th>
+									<th scope="col" class="try">Status</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -133,11 +132,8 @@ if(!empty($_GET["action"])) {
 								?> 
 							</tbody>
 						</table>
-
-
-
 					</div>
-
+				</div>
 					<div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
 						<p>ADRESSE: <?php echo $r['adresse'];?></p>
 						<p>VILLE : <?php echo $r['ville'];?></p>

@@ -28,47 +28,45 @@ if(!empty($_POST))
 <html>
 <head>
 	<link rel="stylesheet" href="../index.css">
-	<title>modifier profil</title>
+	<title>Modifier profil</title>
 </head>
 <body>
  
 
-	<div class="head"> 
+	<div class="head_modif"> 
 		<br>
 		<h1>MODIFICATION DU PROFIL</h1> 
 	</div>
-	<div class="containeur">
+	<div class="contain_modif">
 		<form method="post" action="">
 			</fieldset>
-			<fieldset class="infolivraison">
+			<fieldset class="modiflivraison">
 				<legend> INFORMATIONS DE LIVRAISON </legend>
-				<div class="rowinscri">
-					<div class="npm colu">
-						<div>
-							<label> * Adresse : </label>
-							<input class="input" type="text" name="Adresse" placeholder="Adresse" value="<?php if (isset($Adresse)) echo $Adresse; ?>" maxlength="100" required="required">	
-						</div>
-						<div>
-							<label> * Ville : </label>
-							<input class="input" type="text" name="Ville" placeholder="Ville" value="<?php if (isset($Ville)) echo $Ville; ?>" maxlength="20" required="required">	
-						</div>
+				
+					<div class="modif">
+						
+							<span class="span_modif">Adresse : </span>
+							<input class="info_modif" type="text" name="Adresse" placeholder="Adresse" value="<?php if (isset($Adresse)) echo $Adresse; ?>" maxlength="100" required="required">	
+						<br><br>
+					
+							<span class="span_modif">Ville : </span>
+							<input class="info_modif" type="text" name="Ville" placeholder="Ville" value="<?php if (isset($Ville)) echo $Ville; ?>" maxlength="20" required="required">	
+						<br><br>
+					
+				
+						<span class="span_modif">Code postal : </span>
+						<input class="info_modif" type="number" name="CodeP" placeholder="Code Postale" value="<?php if (isset($CodeP)) echo $CodeP; ?>" maxlength="20" required="required">
 					</div>
-					<div class="mdp colu">
-						<label> * Code postal : </label>
-						<input class="input" type="number" name="CodeP" placeholder="Code Postale" value="<?php if (isset($CodeP)) echo $CodeP; ?>" maxlength="20" required="required">
-					</div>
-				</div>
+				
 			</fieldset>
 			<br>
 			<br> 
-			<input type="submit" value="Modifier" color="red" class="submit">
+			<input type="submit" value="Modifier" id="modif">
 
 		</form>
 		<br>
-		<a href="profil.php" id="back">Retour à l'accueil</a>
+		<a href="profil.php">Retour au Profil</a>
 		<br>
-
-		<span id="bck">* Remplir les champs </span>
 	</div>
 </body>
 

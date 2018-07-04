@@ -65,6 +65,7 @@ if(!empty($_GET["action"])) {
 		if (!empty($product_array)) { 
 			foreach($product_array as $p){
 				?>
+				
 				<div id="card_dr">
 			<form method="post" action="dc.php?action=add&code=<?= $p['code'] ?>">
 			<div class="card" style="width: 18rem;">
@@ -80,6 +81,7 @@ if(!empty($_GET["action"])) {
 			</div>
 			</form>
 		</div>
+		
 				<?php
 			}
 		}
