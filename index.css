@@ -453,7 +453,7 @@ h1{
     width: 80%;
     margin-top: 5%;
     margin-left: 10%;
-    /border: 2px red solid;/
+    border: 5px black solid;
     font-size: 150%;
     position: relative;
 }
@@ -502,6 +502,19 @@ h1{
     right: 5%;
     position: absolute;
     /border: 2px purple solid;/
+
+}
+
+
+.achats {
+
+	height: 60%;
+	width: 25%;
+	text-align: center;
+	border: 4px pink solid;
+	position: absolute;
+	top: 25%;
+	right: 0;
 
 }
 

@@ -36,6 +36,7 @@ if(!empty($_GET["action"])) {
 <body>
 	<div id="shopping-cart">
 		<div class="txt-heading">Panier </div>
+		<div class="achats">
 		<?php
 		if(isset($_SESSION["panier_item"], $_SESSION['id'])){
 			$item_total = 0;
@@ -64,6 +65,7 @@ if(!empty($_GET["action"])) {
 			echo $item_total."0";
 		}
 		?>
+		</div>
 
 		<?php 
 	}
