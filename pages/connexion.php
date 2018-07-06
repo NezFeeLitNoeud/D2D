@@ -62,6 +62,7 @@ if(!empty($_POST)){
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="../index.css">
 	<title>Connexion</title>
 </head>
