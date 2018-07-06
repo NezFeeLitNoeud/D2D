@@ -1,4 +1,11 @@
 <!-- Bootstrap connection -->
+<?php 
+include_once('includes.php');
+
+$cat = $DB->query('SELECT * FROM categories');
+$cat = $cat->fetchAll();
+
+ ?>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
 
@@ -18,10 +25,15 @@
 							PRODUITS
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="nav-link" href="/D2D/pages/dr.php">DRONE RACING</a>
-							<a class="nav-link" href="/D2D/pages/dp.php">DRONE PRO</a>
-							<a class="nav-link" href="/D2D/pages/dc.php">DRONE CAMERA</a>
-							<a class="nav-link" href="/D2D/pages/dl.php">DRONE LOISIR</a>
+
+						<?php 
+						// Boucle pour afficher tout les noms des catégories présente sur la bdd
+							foreach ($cat as $c) {
+						 ?>
+						 <a class="nav-link" id="drop_bouton"href="/D2D/pages/afficher_catgories.php?id=<?php echo $c['id'];?>"><?php echo $c['nom'];?></a>
+						 <?php 
+						 } ?>
+
 						</div>
 					</div>
 				</li>
@@ -35,7 +47,7 @@
 				</li>
 
 				<?php
-				
+				// Si la personne n'est pas connecter, elle verra INSCRIPTION/CONNEXION dans la barre de navigation, en revanche elle verra PROFIL/DECONNEXION si elle est connecter.
 				if(!empty($_SESSION['prenom'])){
 					echo '
 					<li class="nav-item">

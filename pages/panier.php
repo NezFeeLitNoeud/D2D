@@ -3,24 +3,29 @@ session_start();
 include("../includes/connexionDB.php");
 include_once('../includes/includes.php');
 include("../includes/navbar.php");
+
+$ip = $_SERVER['REMOTE_ADDR'];
+
+
 if(!empty($_GET["action"])) {
 	switch($_GET["action"]) {
 		case "remove":
 		// $_SESSION["panier_item"] => Les produits présent dans le pannier.
 		if(!empty($_SESSION["panier_item"])) {
+			// Créer une boucle, va supprimer uniquement le produit qui a comme code le code qui se trouve dans l'URL
 			foreach($_SESSION["panier_item"] as $k => $v) {
 				if($_GET["code"] == $k)
 					unset($_SESSION["panier_item"][$k]);				
-				if(empty($_SESSION["panier_item"]))
-					unset($_SESSION["panier_item"]);
 			}
 		}
 		break;
 		case "empty":
+		// ici, Vide tout le panier sans faire de recherche/distinction entre les code
 		unset($_SESSION["panier_item"]);
 		break;	
 	}
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -36,12 +41,13 @@ if(!empty($_GET["action"])) {
 		<div class="txt-heading">Panier </div>
 		<div class="achats">
 		<?php
-		if(isset($_SESSION["panier_item"], $_SESSION['id'])){
+		if(isset($_SESSION["panier_item"])){
+			// Prix total. va augmenter en fonction des ajouts dans le panier
 			$item_total = 0;
 			?>	
 			<?php foreach ($_SESSION["panier_item"] as $item) {  // $item -> Item séléctionner dans le pannier
-				$product_info = $DB->query("SELECT * FROM product WHERE code = '" . $item["code"] . "'");
-				$product_info = $product_info->fetchAll();
+				// $product_info = $DB->query("SELECT * FROM product WHERE code = '" . $item["code"] . "'");
+				// $product_info = $product_info->fetchAll();
 				// var_dump($item);
 				$item_total += ($item["prix"]*$item["quantite"]);
 				?>
@@ -71,8 +77,39 @@ if(!empty($_GET["action"])) {
 
 	<div class="valider">
 	<form action="payment.php" method="post">
+		<?php if (!empty($_SESSION['panier_item'])) {
+			// Verifie que le panier ne sois pas vide puis si le prix du produit est supérieur à 600€, permet de choisir une couleur sinon affiche une couleur par defaut
+					if ($item['prix'] > 600) {
+			echo '
+		<label> Couleur </label>
+			<select name="Couleur" id="">
+				<option value="Bleu">Bleu</option>
+				<option value="Rouge">Rouge</option>
+				<option value="Blanc">Blanc</option>
+				<option value="Noir">Noir</option>
+			</select>';
+			} else {
+					echo '
+		<label> Couleur </label>
+			<select name="Couleur" id="">
+				<option value="Par Defaut">Par defaut</option>
+			</select>';
 
-	<button type="submit">Valider votre achat</button>
+			}
+			} ?>
+
+
+			<br>
+<?php 
+// Si une session['id'] est en cours alors on va permettre d'acheter le panier, sinon on va demander au visiteur de se connecter
+if(!empty($_SESSION['id'])){
+					echo '<button type="submit">Valider votre achat</button>';
+				}
+				else{
+					echo '<a href="connexion.php">Connecter vous pour Acheter</a>';
+				} 
+				?>
+	
 
 	</form>
 	</div>
@@ -89,6 +126,8 @@ if(!empty($_GET["action"])) {
 
 	</div>
 
+
+			
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

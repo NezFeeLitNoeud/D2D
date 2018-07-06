@@ -1,11 +1,39 @@
-// document.getElementById("btn_1").onmouseover = function() {mouseOver()};
-// document.getElementById("btn_1").onmouseout = function() {mouseOut()};
+// ANMATION PAGE ADMIN.PHP
+$("#form_product").hide();
+
+$(document).ready(function(){
+    $("#show_left").click(function(){
+        $("#form_product").toggle();
+    });
+});
+
+$("#form_rank").hide();
+
+$(document).ready(function(){
+    $("#show_right").click(function(){
+        $("#form_rank").toggle();
+    });
+});
 
 
-// function mouseOver() {
-//     document.getElementById("info_profil").innerHTML = "$_SESSION['nom'];" 
-// }
+// ANIMATION INDEX.PHP
+$(document).ready(function(){
+    $("#panel_image").mouseover(function(){
+        $(this).css("width", "90px");
+        $(this).css("transition", "1s");
+            });
+});
 
-// function mouseOut() {
-//     document.getElementById("info_profil").innerHTML = "black";
-// }
+$(document).ready(function(){
+    $("#panel_image").mouseout(function(){
+        $(this).css("width", "50px");
+            });
+})
+
+
+
+// $('.list-group-item').on('click', function (e) {
+//   $(this).css("background-color", "red");
+// })
+
+

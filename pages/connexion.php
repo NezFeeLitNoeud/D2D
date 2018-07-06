@@ -91,11 +91,12 @@ if(!empty($_POST)){
                  <input class="input_co" type="password" name="Password" placeholder="Mot de passe" value="<?php if (isset($Password)) echo $Password; ?>" required="required"></td>
 		</div>
 <br><br>
-	  		<input type="submit" value="S'inscrire" class="submiit">
+	  		<input type="submit" value="Se Connecter" class="submiit">
 
 		</form>	   
 <br>
 		<a href="../index.php" id="back">Retour à l'accueil</a>
+		<a href="inscription.php" id="back">Inscriver-vous</a>
 </div>
 
 

@@ -27,8 +27,9 @@ html, body {
 	font-size: 20px;
 }
 
-.nav-link {
-
+#drop_bouton {
+	color: black;
+	z-index: 7;
 }
 
 #dropdownMenuButton{
@@ -72,9 +73,20 @@ transform: translate(-50%);
 /*------------------ INDEX.PHP -------------------*/
 /*------------------------------------------------*/
 #admin {
-	float: right;
+	position: absolute;
+	margin-left: 90%;
 }
 
+.tooltip {
+	display:none;
+	position:absolute;
+	border:1px solid #333;
+	background-color:#161616;
+	border-radius:5px;
+	padding:10px;
+	color:#fff;
+	font-size:12px Arial;
+}
 
 .carousel-item img{
 	width: 100%;
@@ -125,7 +137,7 @@ transform: translate(-50%);
 	padding-left: 1%;
 	flex-direction: column;
 	flex: 1;
-	height: 80%;
+	height: 600px;
 }
 
 
@@ -172,6 +184,10 @@ transform: translate(-50%);
 
 #carte {
 	text-align: center;
+	border-left: 1px black solid;
+	border-right: 1px black solid;
+	width: 357px;
+	margin-left: 15%;
 }
 
 #logo {
@@ -339,8 +355,6 @@ h1{
 }
 
 
-
-
 .submit {          /*/ en commun avec connexion/*/     
 	width: 20%; 
 	border: 1px solid #fff;
@@ -429,15 +443,15 @@ h1{
 /*----------------- DRONE RACING -----------------*/
 /*------------------------------------------------*/
 
-#card_dr {
+/*#card_dr {
 	margin-top: 150px;
 	margin-left: 100px;
 	position: relative;
 	display: inline-block;
 	border:1px black solid;
-}
+}*/
  
-  .card-body {
+/*  .card-body {
     border: 2px red solid;
     height: 35%;
 }
@@ -446,7 +460,67 @@ h1{
     border:2px blue solid;
     height: 40%;
     width: 100%;
+} */
+
+#card_dr {
+	margin-top: 150px;
+	margin-left: 60px;
+	position: relative;
+	display: inline-block;
+	border:2px black solid;
+	width: 360px;
+	height: 555px;
+}
+.card-body {
+    border-top: 1px black solid;
+    height: 30%;
+    width: 355px;
+
+}
+.card{
+	border:none;
+	text-align: center;
+}
+
+.card-img-top {
+    height: 40%;
+    width: 355px;
+    height: 250px;
 } 
+
+.infos{
+	width: 300px;
+	display: flex;
+ margin-top: 100px;
+
+}
+
+/*#ajoute{
+	width: 50px;
+}*/
+
+/*#affiche {
+	margin-left: 60px;
+}*/
+#btn_ajout{
+	margin-left: 20px;
+	font-size: 20px;
+	 width: 130px;
+	 height: 40px;
+	 background-color: #57140b;
+	 color: white;
+	 border: none;
+}
+
+.btn_descr{
+	margin-left: 30px;
+	font-size: 20px;
+	 width: 130px;
+	 height: 40px;
+	 background-color: #57140b;
+	 color: white;
+	 border: none;
+}
 
 /*------------------------------------------------*/
 /*-------------------- PROFIL --------------------*/
@@ -464,7 +538,18 @@ h1{
 	height: 60%;
 }
 
+.list-group-item:hover {
+	border-top: 1px black solid;
+	border-bottom: 1px black solid;
+	background-color: none;
+	font-weight: bold;
+}
 
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+  color:#ffffff;
+  background-color:#57140b;
+  border-color:#57140b;
+}
 
 .col-4 {
 	padding: 0px;
@@ -512,6 +597,7 @@ h1{
 /*------------------------------------------------*/
 /*----------------- MODFY PROFIL -----------------*/
 /*------------------------------------------------*/
+
 .contain_modif {
 	border:1px black solid;
 	width: 50%;
@@ -635,6 +721,79 @@ h1{
 	border: 2px black solid;
 	width: 50%;
 	margin: 200 auto;
+}
+
+
+/*------------------------------------------------*/
+/*----------------- PANEL ADMIN ------------------*/
+/*------------------------------------------------*/
+
+
+
+.pan_admin {
+	display: flex;
+	width: 70%;
+	margin: 0 auto;
+	/*border: 3px red solid;*/
+	padding: 10px;
+}
+
+#left {
+	width: 70%;
+	/*border: 1px black solid;*/
+}
+
+#right {
+	width: 70%;
+	/*border: 1px black solid;*/
+	margin-left: 1%;
+}
+
+#show_left {
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	background-color: black;
+	color: white;
+}
+
+#show_right {
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	
+	background-color: black;
+	color: white;
+}
+
+#form_product {
+	font-weight: bold;
+	width: 100%;
+
+}
+
+#form_product input, select{
+	width: 200px;
+	border: 1px black solid;
+	float: right;
+}
+
+#form_rank {
+	font-weight: bold;
+	width: 100%;
+
+}
+
+
+#form_rank input{
+width: 200px;
+	border: 1px black solid;
+	float: right;
+}
+
+.administration {
+	text-align: center;
+	margin-top: 10%;
 }
 
 

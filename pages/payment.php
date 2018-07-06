@@ -2,6 +2,7 @@
 session_start();
 include('../includes/includes.php');
 include('../includes/navbar.php');
+// Redirige automatiquement l'utilisateur sur index.php après 3secondes
 header( "refresh:3;url=../index.php" ); 
 
 $commandes = $DB->query('SELECT * FROM product');
@@ -12,16 +13,24 @@ foreach ($commandes as $com) {
 
 if(isset($_SESSION["panier_item"])){
 
+// On insert dans la base de donnée commandes l'id de l'user, le prix du drone, le code du drone, la couleur selectionner et le status de la commande pour CHAQUE produit dans le panier
 	foreach ($_SESSION["panier_item"] as $item) {  // $item -> Item séléctionner dans le pannier
 		$id = $_SESSION['id'];
 		$Prix = $item['prix'];
 		$Code = $item['code'];
 
-		$ajout = $DB->query('INSERT INTO commandes (id_user, code_drone, prix, status) VALUES (:id_user, :code_drone, :prix, :status)', array('id_user' => $id, 'code_drone' => $Code, 'prix' => $Prix, 'status' => 'Completed'));
+		if(!empty($_POST)) {
+		extract($_POST);
+		$Couleur = htmlentities(trim($Couleur));
 
+		$ajout = $DB->query('INSERT INTO commandes (id_user, code_drone, prix, couleur, status) VALUES (:id_user, :code_drone, :prix, :couleur, :status)', array('id_user' => $id, 'code_drone' => $Code, 'prix' => $Prix, 'couleur' => $Couleur, 'status' => 'Completed'));
+
+// Une fois la requete faite, on vide le pannier
 		unset($_SESSION["panier_item"]);
 	}
+	}
 }
+
 ?>
 
 <!DOCTYPE html>
