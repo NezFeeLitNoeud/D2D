@@ -7,7 +7,13 @@ include_once('includes/navbar.php');
 
 
 
-$_SESSION['test'] = "BONJOUR";
+	$max_com = $DB->query('SELECT *, count(id_drones) FROM commandes INNER JOIN product ON commandes.code_drone = product.code GROUP BY code_drone HAVING count(id_drones) >= ALL (SELECT count(id_drones) FROM commandes INNER JOIN product ON commandes.code_drone = product.code GROUP BY code_drone) LIMIT 1');
+$max_com = $max_com->fetchAll();
+foreach ($max_com as $mc) {
+
+
+}
+
 
 $cat = $DB->query('SELECT * FROM categories');
 $cat = $cat->fetchAll();
@@ -23,13 +29,14 @@ foreach ($prod as $p) {
 }
 $lvl=(isset($_SESSION['rang']))?(int) $_SESSION['rang']:0;
 
+
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="pragma" content="no-cache" />
 	<title>Index</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 	<link rel="stylesheet" href="index.css">
@@ -104,13 +111,24 @@ $lvl=(isset($_SESSION['rang']))?(int) $_SESSION['rang']:0;
 
 			<div class="rowp">
 				<div class="div">
-					<div class="tit">MEILLEURES VENTES</div>
+					<div class="tit">DRONE LE PLUS VENDU</div>
+					<div class="card" id="carte">
+						<img class="card-img-top" id="img_index" src="<?= $mc['image'] ?>" alt="Card image cap">
+						<div class="card-body" id='card_index'>
+							<h4 class="card-title"><?= $mc['nom_drone'] ?></h4>
+							<p class="card-text">Prix : <?= $mc['prix'] ?>€</p>
+							<p class="card-text">Autonomie : <?= $mc['autonomie'] ?>mn</p>
+							<p class="card-text">Poids : <?= $mc['poids'] ?>g</p>
+							<p class="card-text">Vitesse : <?= $mc['vitesse'] ?>km/h</p>
+							<a href="pages/afficher_produit.php?id=<?php echo $mc['id_drone']; ?>" id="btn_card" class="btn btn-primary">Description</a>
+						</div>
+					</div>
 				</div>
 				<div class="div">
 					<div class="tit">DERNIERS AJOUTS</div>
 					<div class="card" id="carte">
-						<img class="card-img-top" src="<?= $p['image'] ?>" alt="Card image cap">
-						<div class="card-body">
+						<img class="card-img-top" id="img_index" src="<?= $p['image'] ?>" alt="Card image cap">
+						<div class="card-body" id='card_index'>
 							<h4 class="card-title"><?= $p['nom_drone'] ?></h4>
 							<p class="card-text">Prix : <?= $p['prix'] ?>€</p>
 							<p class="card-text">Autonomie : <?= $p['autonomie'] ?>mn</p>
@@ -125,6 +143,8 @@ $lvl=(isset($_SESSION['rang']))?(int) $_SESSION['rang']:0;
 		</div>
 
 	</div>
+
+	
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

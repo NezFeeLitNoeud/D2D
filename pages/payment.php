@@ -1,9 +1,8 @@
 <?php 
 session_start();
 include('../includes/includes.php');
-include('../includes/navbar.php');
 // Redirige automatiquement l'utilisateur sur index.php après 3secondes
-header( "refresh:3;url=../index.php" ); 
+header( "refresh:2;url=../index.php" ); 
 
 $commandes = $DB->query('SELECT * FROM product');
 foreach ($commandes as $com) {
@@ -18,12 +17,13 @@ if(isset($_SESSION["panier_item"])){
 		$id = $_SESSION['id'];
 		$Prix = $item['prix'];
 		$Code = $item['code'];
+		$id_drone = $item['id_drone'];
 
 		if(!empty($_POST)) {
 		extract($_POST);
 		$Couleur = htmlentities(trim($Couleur));
 
-		$ajout = $DB->query('INSERT INTO commandes (id_user, code_drone, prix, couleur, status) VALUES (:id_user, :code_drone, :prix, :couleur, :status)', array('id_user' => $id, 'code_drone' => $Code, 'prix' => $Prix, 'couleur' => $Couleur, 'status' => 'Completed'));
+		$ajout = $DB->insert('INSERT INTO commandes (id_user, code_drone, prix, couleur, status, id_drones) VALUES (:id_user, :code_drone, :prix, :couleur, :status, :id_drones)', array('id_user' => $id, 'code_drone' => $Code, 'prix' => $Prix, 'couleur' => $Couleur, 'status' => 'Completed', 'id_drones' => $id_drone));
 
 // Une fois la requete faite, on vide le pannier
 		unset($_SESSION["panier_item"]);
@@ -36,7 +36,7 @@ if(isset($_SESSION["panier_item"])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 	<title>Paiement</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 	<link rel="stylesheet" href="../index.css">

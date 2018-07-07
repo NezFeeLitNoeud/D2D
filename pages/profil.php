@@ -40,7 +40,7 @@ if(!empty($_GET["action"])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 	<link rel="stylesheet" href="../index.css">
 	<title>Drone Racing</title>
@@ -107,9 +107,10 @@ if(!empty($_GET["action"])) {
 
 					</div>
 					
+					<!-- AFFICHE LE TABLEAU DES COMMANDES EFFECTUES -->
 					<div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
 						<div class="tablo">
-							<table class="table">
+							<table class="table" id="tabtab">
 								<thead class="thead-dark">
 									<tr>
 										<th scope="col" class="try">#</th>
