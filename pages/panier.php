@@ -52,7 +52,7 @@ if(!empty($_GET["action"])) {
 							<thead class="thead-dark">
 								<tr>
 									<th scope="col">Produit</th>
-									<th scope="col">Quantitée</th>
+									<th scope="col">Quantité</th>
 									<th scope="col">Couleur</th>
 									<th scope="col">Prix</th>
 									<th scope="col"></th>
@@ -68,44 +68,34 @@ if(!empty($_GET["action"])) {
 										<?php foreach ($_SESSION["panier_item"] as $item) {  // $item -> Item séléctionner dans le pannier
 											$product_info = $DB->query("SELECT * FROM product WHERE code = '" . $item["code"] . "'");
 											$product_info = $product_info->fetchAll();
-												// var_dump($item);
 											$item_total += ($item["prix"]*$item["quantite"]);
 											?>
 
 
 					<tr>
 						<th scope="row"><div><strong><?php echo $item["nom_drone"]; ?></strong></div></th>
-						<td><div>Quantitée: <?php echo $item["quantite"]; ?></div></td>
+						<td><div>Quantité: <?php echo $item["quantite"]; ?></div></td>
 						<td><?php if (!empty($_SESSION['panier_item'])) {
-						// Verifie que le panier ne sois pas vide puis si le prix du produit est supérieur à 600€, permet de choisir une couleur sinon affiche une couleur par defaut
-							if ($item['id_drone'] == 13) {
+						// Verifie que le panier ne sois pas vide puis si l'id du drone est 11 ou 13, permet de choisir une couleur sinon affiche une couleur par defaut
+							if ($item['id_drone'] == 13 || $item['id_drone'] == 11) {
 								echo '
 								
-								<select name="Couleur" id="">
+								<select name="Couleur">
 								<option value="Orange">Orange</option>
 								<option value="Rose">Rose</option>
 								<option value="Bleu">Bleu</option>
 								<option value="Vert">Vert</option>
 								</select>';
-							} elseif ($item['id_drone'] == 11) {
-							echo  '<select name="Couleur" id="">
-								<option value="Blanc">Blanc</option>
-								<option value="Rouge">Rouge</option>
-								<option value="Bleu">Bleu</option>
-								<option value="Vert">Vert</option>
-								<option value="Jaune">Jaune</option>
-								</select>';
-								;
-
-							}else {
+							
+							} else {
 								echo '
-								
-								<select name="Couleur" id="">
+								<select name="Couleur">
 								<option value="Par Defaut">Par defaut</option>
 								</select>';
 
 							}
-						} ?>
+						} 
+						?>
 						
 					</td>
 					<td><div class="product-price"><?php echo $item["prix"]."€"; ?></div></td>

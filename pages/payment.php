@@ -12,6 +12,8 @@ foreach ($commandes as $com) {
 
 if(isset($_SESSION["panier_item"])){
 
+
+
 // On insert dans la base de donnée commandes l'id de l'user, le prix du drone, le code du drone, la couleur selectionner et le status de la commande pour CHAQUE produit dans le panier
 	foreach ($_SESSION["panier_item"] as $item) {  // $item -> Item séléctionner dans le pannier
 		$id = $_SESSION['id'];
@@ -22,6 +24,7 @@ if(isset($_SESSION["panier_item"])){
 		if(!empty($_POST)) {
 		extract($_POST);
 		$Couleur = htmlentities(trim($Couleur));
+
 
 		$ajout = $DB->insert('INSERT INTO commandes (id_user, code_drone, prix, couleur, status, id_drones) VALUES (:id_user, :code_drone, :prix, :couleur, :status, :id_drones)', array('id_user' => $id, 'code_drone' => $Code, 'prix' => $Prix, 'couleur' => $Couleur, 'status' => 'Completed', 'id_drones' => $id_drone));
 

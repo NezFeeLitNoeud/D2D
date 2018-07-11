@@ -60,7 +60,7 @@ if(!empty($_GET["action"])) {
 				</div>
 			</div>
 			<div class="col-8">
-				<div class="tab-content" id="nav-tabContent">
+				<div class="tab-content table-responsive" id="nav-tabContent">
 					<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
 						<?php
 						// Requete pour compter le nombre d'achat total que l'utilisateur à fait

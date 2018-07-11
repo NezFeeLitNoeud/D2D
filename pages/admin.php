@@ -21,7 +21,13 @@ if(!empty($_POST) && ($_FILES['Image'])) {
 	$Prix = htmlspecialchars(ucfirst(trim($Prix)));
 	// On récupere le nom de l'image qui est upload avec le chemin avant pour pouvoir bien tout afficher
 	$Image = "/D2D/products_pictures/".$_FILES['Image']['name'];
+	$Image2 = "/D2D/products_pictures/".$_FILES['Image2']['name'];
+	$Image3 = "/D2D/products_pictures/".$_FILES['Image3']['name'];
+	$Image4 = "/D2D/products_pictures/".$_FILES['Image4']['name'];
+	$Image5 = "/D2D/products_pictures/".$_FILES['Image5']['name'];
+	$Logo = "/D2D/products_pictures/".$_FILES['Logo']['name'];
 	$Desc = htmlspecialchars(ucfirst(trim($Desc)));
+	$Carac = htmlspecialchars(ucfirst(trim($Carac)));
 	$Autonomie = htmlspecialchars(ucfirst(trim($Autonomie)));
 	$Poids = htmlspecialchars(ucfirst(trim($Poids)));
 	$Vitesse = htmlspecialchars(ucfirst(trim($Vitesse)));
@@ -30,7 +36,22 @@ if(!empty($_POST) && ($_FILES['Image'])) {
 	
 
 	if ($valid) {
-		$DB->insert('INSERT INTO product (id_cat, nom_drone, image, prix, description, autonomie, poids, vitesse, code) VALUES(:id_cat, :nom_drone, :image, :prix, :description, :autonomie, :poids, :vitesse, :code)', array('id_cat' => $categorie, 'nom_drone' => $nomDrone, 'image' => $Image, 'prix' => $Prix, 'description' => $Desc, 'autonomie' => $Autonomie, 'poids' => $Poids, 'vitesse' => $Vitesse, 'code' => $Code,));
+		$DB->insert('INSERT INTO product (id_cat, nom_drone, prix, image, image2, image3, image4, image5, logo,  description, caracteristiques, autonomie, poids, vitesse, code) VALUES(:id_cat, :nom_drone, :prix, :image, :image2, :image3, :image4, :image5, :logo, :description, :caracteristiques, :autonomie, :poids, :vitesse, :code)', 
+			array('id_cat' => $categorie, 
+				'nom_drone' => $nomDrone, 
+				'image' => $Image, 
+				'image2' => $Image2,
+				'image3' => $Image3,
+				'image4' => $Image4,
+				'image5' => $Image5,
+				'logo' => $Logo,
+				'prix' => $Prix, 
+				'description' => $Desc, 
+				'caracteristiques' => $Carac,
+				'autonomie' => $Autonomie, 
+				'poids' => $Poids, 
+				'vitesse' => $Vitesse, 
+				'code' => $Code,));
 	}
 }
 
@@ -97,8 +118,31 @@ if(!empty($_GET)) {
 			<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
 			<input type="file" name="Image" placeholder="Image" value="<?php if (isset($Image)) echo $Image; ?>" required>
 			<br>
+			<label>Image2</label>
+			<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+			<input type="file" name="Image2" placeholder="Image" value="<?php if (isset($Image2)) echo $Image2; ?>" required>
+			<br>
+			<label>Image3</label>
+			<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+			<input type="file" name="Image3" placeholder="Image" value="<?php if (isset($Image3)) echo $Image3; ?>" required>
+			<br>
+			<label>Image4</label>
+			<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+			<input type="file" name="Image4" placeholder="Image" value="<?php if (isset($Image4)) echo $Image4; ?>" required>
+			<br>
+			<label>Image5</label>
+			<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+			<input type="file" name="Image5" placeholder="Image" value="<?php if (isset($Image5)) echo $Image5; ?>" required>
+			<br>
+			<label>Logo</label>
+			<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+			<input type="file" name="Logo" placeholder="Logo" value="<?php if (isset($Logo)) echo $Logo; ?>" required>
+			<br>
 			<label>Description :</label>
 				<input  type="text" name="Desc" placeholder="Description" value="<?php if (isset($Desc)) echo $Desc; ?>" required="required">
+			<br>
+			<label>Caracteristiques :</label>
+				<input  type="text" name="Carac" placeholder="Description" value="<?php if (isset($Carac)) echo $Carac; ?>" required="required">
 			<br>
 			<label>Autonomie :</label>
 				<input  type="number" name="Autonomie" placeholder="Autonomie" value="<?php if (isset($Autonomie)) echo $Autonomie; ?>" required="required">

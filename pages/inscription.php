@@ -165,9 +165,6 @@ if(!empty($_POST))
 			</fieldset>
 			<br>
 			<br>
-
-			<input type="checkbox" name="v" value="B" class="ckeckins"> Vous acceptez les Conditions Generales d'utilisattion<br>
-			<input type="checkbox" name="v" value="B" class="ckeckins" checked> Vous accepter de recevoir des mails de la part de Drone2Dame sur nos nouveaux arrivages <br><br>
 			<input type="submit" value="S'inscrire" color="red" class="submit">
 
 		</form>

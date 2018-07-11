@@ -74,7 +74,7 @@ if (isset($ip)){
   ?>
 
   <div class="card cardf">
-    <form method="post" action="afficher_catgories.php?id=<?php echo $id?>&action=add&code=<?= $ad['code'] ?>" id="form_pa">
+    <form method="post" action="afficher_produit.php?id=<?php echo $id?>&action=add&code=<?= $ad['code'] ?>" id="form_pa">
     <div class="card-body cb">
       <div class="tinypictures">
         <div class="tiny"><img id="tinyu" src="<?= $ad['image'] ?>" alt="drone"></div>

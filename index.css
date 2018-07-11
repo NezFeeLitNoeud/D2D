@@ -23,7 +23,7 @@ body{
 
 
 #navigation {
-	width: 50%;
+	width: 60%;
 	margin: 0 auto;
 	border-bottom: 5px black solid;
 	background-color: white;
@@ -31,7 +31,7 @@ body{
 
 .nav-item {
 	text-align: center;
-	margin-left: 15px;
+	margin-left: 5%;
 	font-size: 20px;
 /*	background-color: none !important;*/
 }
@@ -67,12 +67,21 @@ body{
 
 @media screen and (max-width: 1280px) {
 	.nav-item {
-		width: 80px;
-		font-size: 15px;
-		margin-left: 20px;
+
+		font-size: 18px;
+		margin-left: 50px;
 	}
+}
+
+@media screen and (max-width: 1355px) {
 		#off {
-	display: hidden;
+	width: 1px;
+	height: 1px;
+	}
+	.nav-item {
+		width: 80px;
+		font-size: 18px;
+		margin-left: 50px;
 	}
 }
 
@@ -286,7 +295,7 @@ li {
 
 .containeur {
 	border: solid;
-	width: 650px;
+	width: 45%;
 	height: 500px;
 	margin-left: auto;
 	margin-right: auto;
@@ -300,7 +309,7 @@ li {
 }
 
 #back {
-	margin-left:270px;
+	margin-left:40%;
 }
 
 #bck {
@@ -336,19 +345,9 @@ li {
 	margin-left: 1%;
 }
 
-.head {                                                /*/ en commun avec connexion/*/
-	background-color: #17202A;	
-	width: 905px;
-	height: 15px;
-	margin-top:0; 
-	margin-left: auto;
-	margin-right: auto;
-}
-
-
 .contour{
-	border: solid;
-	width: 900px;
+	border: 2px red solid;
+	width: 50%;
 	height: 950px;
 	margin-left: auto;
 	margin-right: auto;
@@ -365,7 +364,7 @@ h1{
 
 .infoperso{ /**/
 	
-	width: 600px;
+	width: 90%;
 	height: 150px;
 	margin-left: auto;
 	margin-right: auto;
@@ -420,12 +419,10 @@ h1{
 
 .submit {          /*/ en commun avec connexion/*/     
 	width: 20%; 
-	border: 1px solid #fff;
 	border-radius: 10px;
 	padding: 6px 15px;
-	margin-left: 260px;
+	margin-left: 40%;
 	font-size: 18px; 
-	color: white;
 }
 
 
@@ -441,13 +438,30 @@ input[type="submit"]:hover{
 	transition: 1s;
 }
 
+@media screen and (max-width: 1300px) {
+	.mdp{
+		font-size: 14px;
+
+	}
+	.npm {
+		font-size: 14px;
+	}
+	.input {
+		width: 80px;
+	}
+	.submit {
+		width: 15%;
+		font-size: 12px;
+	}
+}
+
 
 /*------------------------------------------------*/
 /*------------------ CONNEXION -------------------*/
 /*------------------------------------------------*/
 .containeuur {
 	border: solid;
-	width: 650px;
+	width: 45%;
 	height: 350px;
 	margin-left: auto;
 	margin-right: auto;
@@ -458,7 +472,7 @@ input[type="submit"]:hover{
 .head{
 	background: black;
 	border: solid;
-	width: 650px;
+	width: 45%;
 	height: 60px;
 	margin-left: auto;
 	margin-right: auto;
@@ -484,7 +498,7 @@ h1{
 }
 
 .input_co {
-	width: 230px;
+	width: 30%;
 	height: 25px;
 	border: 1px black solid;
 	border-radius: 20px;
@@ -494,10 +508,10 @@ h1{
 
 .submiit {     
 	width: 20%; 
-	border: 1px solid #fff;
+	height: 30px;
+	border: none;
 	border-radius: 10px;
-	padding: 6px 15px;
-	margin-left: 260px;
+	margin-left: 40%;
 	font-size: 18px; 
 	color: white;
 }
@@ -527,46 +541,56 @@ h1{
 
 #card_dr {
 	margin-top: 150px;
-	margin-left: 60px;
+	margin-left: 80px;
 	position: relative;
 	display: inline-block;
 	border:2px black solid;
-	width: 360px;
+	width: 25%;
 	height: 555px;
+	text-align: center;
 /*	border: 4px green solid;*/
 }
 .card-body {
-    /*border: 1px red solid;*/
-    margin-left: -39px;
+/*    border: 1px red solid;*/
+    margin-left: -10%;
     height: 30%;
-    width: 355px;
+    width: 125%;
 
 }
 .card{
-
 	text-align: center;
 	border: none !important;
 }
 
 .card-img-top {
 	margin-top: -99px;
-	margin-left: -36px;
+	margin-left: -35px;
     height: 40%;
     border-bottom: 1px black solid;
-    width: 355px;
+    width: 125%;
     height: 250px;
 } 
 
 .infos{
-	width: 300px;
+	width: 100%;
 	display: flex;
  margin-top: 90px;
 }
 
+@media screen and (max-width: 1390px) {
+	.card-img-top {
+		width: 120%;
+		margin-left: -25px; 
+	}
+	#card_dr .card-title {
+		font-size: 20px;
+	}
+}
+
 #btn_ajout{
-	margin-left: 20px;
+	margin-left: 5%;
 	font-size: 20px;
-	 width: 130px;
+	 width: 30%;
 	 height: 40px;
 	 background-color: #57140b;
 	 color: white;
@@ -574,9 +598,9 @@ h1{
 }
 
 .btn_descr{
-	margin-left: 30px;
+	margin-left: 25%;
 	font-size: 20px;
-	 width: 130px;
+	 width: 130%;
 	 height: 40px;
 	 background-color: #57140b;
 	 color: white;
@@ -596,7 +620,7 @@ h1{
 	margin-left: 0px;
 	overflow: scroll;
 	height: 350px;
-	width: 530px;
+	width: 100%;
 	overflow-x: hidden;
 }
 
@@ -663,7 +687,7 @@ h1{
 }
 
 #modify {
-	margin-top: 40%;
+	margin-top: 30%;
 	background-color: #57140b;
 	border: none;
 }

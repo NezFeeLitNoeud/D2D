@@ -10,8 +10,6 @@ include_once('includes/navbar.php');
 	$max_com = $DB->query('SELECT *, count(id_drones) FROM commandes INNER JOIN product ON commandes.code_drone = product.code GROUP BY code_drone HAVING count(id_drones) >= ALL (SELECT count(id_drones) FROM commandes INNER JOIN product ON commandes.code_drone = product.code GROUP BY code_drone) LIMIT 1');
 $max_com = $max_com->fetchAll();
 foreach ($max_com as $mc) {
-
-
 }
 
 
@@ -139,9 +137,7 @@ $lvl=(isset($_SESSION['rang']))?(int) $_SESSION['rang']:0;
 					</div>
 				</div>
 			</div>
-
 		</div>
-
 	</div>
 
 	
